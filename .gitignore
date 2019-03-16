@@ -1,0 +1,26 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+# dependencies
+front-end/node_modules
+/.pnp
+.pnp.js
+
+# testing
+front-end/coverage
+
+# production
+front-end/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+
+.idea/
+front-end/front-end.iml
+back-end/back-end.iml
+front-end/README.md
