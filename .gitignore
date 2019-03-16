@@ -1,11 +1,19 @@
 # Created by .ignore support plugin (hsz.mobi)
+.idea/
 
-# dependencies
+# front-end
+front-end/front-end.iml
 front-end/node_modules
-/.pnp
-.pnp.js
+front-end/README.md
 
-# testing
+# back-end
+back-end/back-end.iml
+
+
+
+
+
+
 front-end/coverage
 
 # production
@@ -20,7 +28,4 @@ front-end/build
 
 npm-debug.log*
 
-.idea/
-front-end/front-end.iml
-back-end/back-end.iml
-front-end/README.md
+
