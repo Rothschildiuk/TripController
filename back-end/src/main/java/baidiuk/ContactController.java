@@ -23,11 +23,11 @@ public class ContactController {
 
         Contact n = new Contact();
 
-        String name = jsonBody.get("name").toString();
-        String surName = jsonBody.get("surName").toString();
-        String phoneNumber = jsonBody.get("phoneNumber").toString();
-        String address = jsonBody.get("address").toString();
-        String comment = jsonBody.get("comment").toString();
+        String name = jsonBody.get("name").asText();
+        String surName = jsonBody.get("surName").asText();
+        String phoneNumber = jsonBody.get("phoneNumber").asText();
+        String address = jsonBody.get("address").asText();
+        String comment = jsonBody.get("comment").asText();
 
         if (StringUtils.isEmpty(name) ||
                 StringUtils.isEmpty(surName) ||

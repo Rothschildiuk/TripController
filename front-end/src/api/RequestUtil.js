@@ -5,7 +5,7 @@ export default class RequestUtil {
         const contact = {name: name, surName: surName, phoneNumber: phoneNumber, address: address, comment: comment};
 
 
-        return await fetch('api/addContact/',
+        return await fetch('/api/addContact',
             {
                 headers: {
                     'Content-Type': 'application/json'
