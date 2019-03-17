@@ -1,46 +1,52 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import RequestUtil from "./api/RequestUtil";
 
-class App extends Component {
-  render() {
+const App = () => {
+    const [name, setName] = useState("");
+    const [surname, setSurname] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [address, setAddress] = useState("");
+    const [comment, setComment] = useState("");
+
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>add new contact to DB</h1>
+        <div className="App">
+            <h1>add new contact to DB</h1>
 
-          <form>
             <label>
-              Name:
-              <input type="text" name="name" />
+                Name:
+                <input value={name} onChange={e => setName(e.target.value)} type="text" name="name"/>
             </label>
             <br/>
             <label>
-              Surname:
-              <input type="text" name="surname" />
+                Surname:
+                <input value={surname} onChange={e => setSurname(e.target.value)} type="text" name="surname"/>
             </label>
             <br/>
             <label>
-              PhoneNumber:
-              <input type="text" name="phoneNumber" />
+                PhoneNumber:
+                <input value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} type="text"
+                       name="phoneNumber"/>
             </label>
             <br/>
             <label>
-              Address:
-              <input type="text" name="address" />
+                Address:
+                <input value={address} onChange={e => setAddress(e.target.value)} type="text" name="address"/>
             </label>
             <br/>
             <label>
-              Comment:
-              <input type="text" name="comment" />
+                Comment:
+                <input value={comment} onChange={e => setComment(e.target.value)} type="text" name="comment"/>
             </label>
             <br/>
-            <input type="submit" value="Submit" />
-          </form>
-        </header>
-      </div>
+            <button type="submit" value="Submit"
+                    onClick={() => RequestUtil.addContact(name, surname, phoneNumber, address, comment)}>submit
+            </button>
+
+        </div>
     );
-  }
-}
+
+};
 
 export default App;
