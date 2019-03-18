@@ -47,7 +47,7 @@ public class ContactController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(path = "/getAll")
+    @GetMapping(path = "/getAllUsers")
     public @ResponseBody
     Iterable<Contact> getAllUsers() {
         // This returns a JSON or XML with the users
