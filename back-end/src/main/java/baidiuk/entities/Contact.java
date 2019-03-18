@@ -1,4 +1,4 @@
-package baidiuk;
+package baidiuk.entities;
 
 import lombok.*;
 

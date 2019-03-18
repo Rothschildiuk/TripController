@@ -1,6 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
-
+lib/
 # front-end
 front-end/front-end.iml
 front-end/node_modules

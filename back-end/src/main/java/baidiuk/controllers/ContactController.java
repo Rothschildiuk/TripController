@@ -1,5 +1,7 @@
-package baidiuk;
+package baidiuk.controllers;
 
+import baidiuk.repository.ContactRepository;
+import baidiuk.entities.Contact;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

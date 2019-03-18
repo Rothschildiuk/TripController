@@ -1,5 +1,6 @@
-package baidiuk;
+package baidiuk.repository;
 
+import baidiuk.entities.Contact;
 import org.springframework.data.repository.CrudRepository;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
