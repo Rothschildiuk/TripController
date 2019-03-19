@@ -1,16 +1,16 @@
 export default class RequestUtil {
 
-    static async addContact(name, surName, phoneNumber, address, comment) {
-        const contact = {name: name, surName: surName, phoneNumber: phoneNumber, address: address, comment: comment};
+    static async addPassenger(name, surName, phoneNumber, address, comment) {
+        const passenger = {name: name, surName: surName, phoneNumber: phoneNumber, address: address, comment: comment};
 
 
-        return await fetch('/api/addContact',
+        return await fetch('/api/addPassenger',
             {
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 method: 'POST',
-                body: JSON.stringify(contact)
+                body: JSON.stringify(passenger)
             }
         );
 

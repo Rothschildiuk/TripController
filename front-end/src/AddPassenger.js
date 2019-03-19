@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import RequestUtil from "./api/RequestUtil";
 
-const AddNewContact = () => {
+const AddPassenger = () => {
     const [name, setName] = useState("");
     const [surname, setSurname] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -11,8 +11,8 @@ const AddNewContact = () => {
 
 
     return (
-        <div className="AddNewContact">
-            <h1>add new contact to DB</h1>
+        <div className="AddPassenger">
+            <h1>add new passenger to DB</h1>
 
             <label>
                 Name:
@@ -41,7 +41,7 @@ const AddNewContact = () => {
             </label>
             <br/>
             <button type="submit" value="Submit"
-                    onClick={() => RequestUtil.addContact(name, surname, phoneNumber, address, comment)}>submit
+                    onClick={() => RequestUtil.addPassenger(name, surname, phoneNumber, address, comment)}>submit
             </button>
 
         </div>
@@ -49,4 +49,4 @@ const AddNewContact = () => {
 
 };
 
-export default AddNewContact;
+export default AddPassenger;
