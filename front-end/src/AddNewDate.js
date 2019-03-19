@@ -12,7 +12,7 @@ const AddNewDate = () => {
 
             <label>
                 Date:
-                <input value={date} onChange={e => setDate(e.target.value)} type="text" name="name"/>
+                <input value={date} onChange={e => setDate(e.target.value)} type="text" name="date"/>
             </label>
             <br/>
             <button type="submit" value="Submit"

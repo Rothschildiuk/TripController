@@ -23,8 +23,8 @@ class GetAllTravel extends Component {
                 <table>
                     <tbody>
                     <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
+                        <th>TravelId</th>
+                        <th>Date</th>
                     </tr>
                     {this.state.travelList.map(t =>
                         <tr key = {t.id}>

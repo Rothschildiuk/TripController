@@ -3,6 +3,7 @@ package baidiuk.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -19,5 +20,10 @@ public class Passenger {
     private String phoneNumber;
     private String address;
     private String comment;
+
+    @ManyToOne
+    @JoinColumn
+    @NotNull
+    private Travel travelId;
 
 }

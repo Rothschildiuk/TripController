@@ -1,7 +1,7 @@
 export default class RequestUtil {
 
-    static async addPassenger(name, surName, phoneNumber, address, comment) {
-        const passenger = {name: name, surName: surName, phoneNumber: phoneNumber, address: address, comment: comment};
+    static async addPassenger(name, surName, phoneNumber, address, comment, travelId) {
+        const passenger = {name: name, surName: surName, phoneNumber: phoneNumber, address: address, comment: comment, travelId: travelId};
 
 
         return await fetch('/api/addPassenger',

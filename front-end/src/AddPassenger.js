@@ -8,6 +8,7 @@ const AddPassenger = () => {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [address, setAddress] = useState("");
     const [comment, setComment] = useState("");
+    const [travelId, setTravelId] = useState(0);
 
 
     return (
@@ -40,8 +41,14 @@ const AddPassenger = () => {
                 <input value={comment} onChange={e => setComment(e.target.value)} type="text" name="comment"/>
             </label>
             <br/>
+            <br/>
+            <label>
+                TravelId:
+                <input value={travelId} onChange={e => setTravelId(e.target.value)} type="number" name="travelId"/>
+            </label>
+            <br/>
             <button type="submit" value="Submit"
-                    onClick={() => RequestUtil.addPassenger(name, surname, phoneNumber, address, comment)}>submit
+                    onClick={() => RequestUtil.addPassenger(name, surname, phoneNumber, address, comment, travelId)}>submit
             </button>
 
         </div>
