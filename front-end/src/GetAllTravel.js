@@ -5,25 +5,35 @@ class GetAllTravel extends Component {
 
     state = {
         travelList: [],
-        data: [{name: 'Jhon', age: 28, city: 'HO'},
-            {name: 'Onhj', age: 82, city: 'HN'},
-            {name: 'Nohj', age: 41, city: 'IT'}
-        ]
+
     };
 
     async componentDidMount() {
-        this.state.travelList = RequestUtil.getAllTravel();
+
+        const responce = await RequestUtil.getAllTravel();
+        const allTravel = await responce.json();
+        console.log(allTravel);
+        this.setState({travelList: allTravel})
     }
 
     render() {
         return (
             <div className="GetAllTravel">
                 <h5>GetAllTravel</h5>
-                <div>
-                    {this.state.data.map(list => (
-                        <div key={list.id}><pre>{JSON.stringify(list, null, 0)}</pre></div>
-                    ))}
-                </div>
+                <table>
+                    <tbody>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                    </tr>
+                    {this.state.travelList.map(t =>
+                        <tr key = {t.id}>
+                            <td>{t.id}</td>
+                            <td>{t.date}</td>
+                        </tr>
+                    )}
+                    </tbody>
+                </table>
             </div>
         );
     }

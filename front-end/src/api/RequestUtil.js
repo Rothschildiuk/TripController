@@ -31,7 +31,7 @@ export default class RequestUtil {
     }
 
     static async getAllTravel() {
-        return await fetch(URL + 'http://localhost:8080/api/getAllTravel', {
+        return await fetch( '/api/getAllTravel', {
             method: 'GET'
         });
     }
