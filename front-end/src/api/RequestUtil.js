@@ -35,4 +35,14 @@ export default class RequestUtil {
             method: 'GET'
         });
     }
+    static async getUpcomingTravels() {
+        return await fetch( '/api/getUpcomingTravels', {
+            method: 'GET'
+        });
+    }
+    static async getPastTravels() {
+        return await fetch( '/api/getPastTravels', {
+            method: 'GET'
+        });
+    }
 }

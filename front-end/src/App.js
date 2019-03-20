@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
 import AddNewDate from "./AddNewDate";
-import GetAllTravel from "./GetAllTravel";
 import AddPassenger from "./AddPassenger";
+import PastTravelsList from "./PastTravelsList";
+import UpcomingTravelsList from "./UpcomingTravelsList";
 
 const App = () => {
 
@@ -13,7 +14,9 @@ const App = () => {
             <h1>App</h1>
             <AddPassenger/>
             <AddNewDate/>
-            <GetAllTravel/>
+
+            <PastTravelsList/>
+            <UpcomingTravelsList/>
 
         </div>
     );
