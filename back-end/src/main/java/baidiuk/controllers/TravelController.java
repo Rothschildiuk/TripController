@@ -45,10 +45,22 @@ public class TravelController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(path = "/getAllTravel")
+    @GetMapping(path = "/getAllTravels")
     public @ResponseBody
     Iterable<Travel> getAll() {
         // This returns a JSON or XML with the users
         return travelRepository.findAll();
+    }
+
+    @GetMapping(path = "/getPastTravels")
+    public @ResponseBody
+    Iterable<Travel> getPastTravels() {
+        return travelRepository.getPastTravels();
+    }
+
+    @GetMapping(path = "/getUpcomingTravels")
+    public @ResponseBody
+    Iterable<Travel> getUpcomingTravels() {
+        return travelRepository.getUpcomingTravels();
     }
 }
