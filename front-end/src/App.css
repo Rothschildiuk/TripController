@@ -1,1 +1,33 @@
 
+.App {
+    background-color: bisque;
+    height: 100vh;
+}
+
+
+.WokingArea {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #c5acff;
+
+}
+
+.UpcomingTravelsList {
+    width: 30%;
+    background-color: #97ff95;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.AddPassenger {
+    width: 70%;
+    background-color: #ff9dac;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+
+}

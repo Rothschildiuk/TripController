@@ -3,6 +3,9 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import axios from 'axios'
+import 'typeface-roboto'
+import AddNewDate from './AddNewDate'
+import Typography from '@material-ui/core/Typography'
 
 
 const UpcomingTravelsList = () => {
@@ -20,9 +23,10 @@ const UpcomingTravelsList = () => {
     )
 
     return (
-        <div className="UpcomingTravelsList">
-            <h5>UpcomingTravelsList</h5>
-
+        <div className='UpcomingTravelsList'>
+            <Typography variant='h4'>
+                Actuel travels
+            </Typography>
             <List>
                 {upcomingTravels.map((item, index) =>
                     <ListItem key={index} button>
@@ -32,8 +36,9 @@ const UpcomingTravelsList = () => {
 
 
             </List>
+            <AddNewDate/>
         </div>
     )
 }
 
-export default UpcomingTravelsList;
+export default UpcomingTravelsList

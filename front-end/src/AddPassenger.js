@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
 import './App.css';
-import RequestUtil from "./api/RequestUtil";
+import RequestUtil from './api/RequestUtil';
 
 const AddPassenger = () => {
-    const [name, setName] = useState("");
-    const [surname, setSurname] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [address, setAddress] = useState("");
-    const [comment, setComment] = useState("");
+    const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [address, setAddress] = useState('');
+    const [comment, setComment] = useState('');
     const [travelId, setTravelId] = useState(0);
 
 
     return (
-        <div className="AddPassenger">
+        <div className='AddPassenger'>
             <h1>add new passenger to DB</h1>
 
             <label>

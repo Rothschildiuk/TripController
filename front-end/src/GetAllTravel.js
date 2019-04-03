@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import RequestUtil from "./api/RequestUtil";
+import RequestUtil from './api/RequestUtil';
 
 class GetAllTravel extends Component {
 
@@ -18,7 +18,7 @@ class GetAllTravel extends Component {
 
     render() {
         return (
-            <div className="GetAllTravel">
+            <div className='GetAllTravel'>
                 <h5>GetAllTravel</h5>
                 <table>
                     <tbody>

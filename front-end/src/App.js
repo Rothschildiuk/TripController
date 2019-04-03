@@ -1,27 +1,21 @@
-import React from 'react';
-import './App.css';
-import AddNewDate from "./AddNewDate";
-import AddPassenger from "./AddPassenger";
-import PastTravelsList from "./PastTravelsList";
-import UpcomingTravelsList from "./UpcomingTravelsList";
+import React from 'react'
+import './App.css'
+import UpcomingTravelsList from './UpcomingTravelsList'
 import AppBar from './AppBar'
+import AddPassenger from './AddPassenger'
 
 const App = () => {
 
-
-
     return (
-        <div className="App">
+        <div className='App'>
             <AppBar/>
-            <AddPassenger/>
-            <AddNewDate/>
-
-            <PastTravelsList/>
-            <UpcomingTravelsList/>
-
+            <div className='WokingArea'>
+                <UpcomingTravelsList/>
+                <AddPassenger/>
+            </div>
         </div>
     );
 
 };
 
-export default App;
+export default App

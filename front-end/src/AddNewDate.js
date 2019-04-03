@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import RequestUtil from "./api/RequestUtil";
+import Typography from '@material-ui/core/Typography'
 
 const AddNewDate = () => {
     const [date, setDate] = useState("");
@@ -8,8 +9,9 @@ const AddNewDate = () => {
 
     return (
         <div className="AddNewDate">
-            <h1>add new date to DB</h1>
-
+            <Typography variant='h5'>
+                add new date to DB
+            </Typography>
             <label>
                 Date:
                 <input value={date} onChange={e => setDate(e.target.value)} type="text" name="date"/>
