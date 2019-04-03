@@ -1,41 +1,39 @@
-import React, {Component} from 'react';
-import RequestUtil from "./api/RequestUtil";
+import React, {useEffect, useState} from 'react'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import axios from 'axios'
 
-class UpcomingTravelsList extends Component {
 
-    state = {
-        travelList: [],
+const UpcomingTravelsList = () => {
 
-    };
+    const [upcomingTravels, setUpcomingTravels] = useState([]);
 
-    async componentDidMount() {
+    useEffect(
+        () => {
 
-        const responce = await RequestUtil.getUpcomingTravels();
-        const upcomingTravels = await responce.json();
-        this.setState({travelList: upcomingTravels})
-    }
+            const url = '/api/getUpcomingTravels'
+            axios.get(url)
+                .then(resp => setUpcomingTravels(resp.data))
 
-    render() {
-        return (
-            <div className="UpcomingTravelsList">
-                <h5>UpcomingTravelsList</h5>
-                <table>
-                    <tbody>
-                    <tr>
-                        <th>TravelId</th>
-                        <th>Date</th>
-                    </tr>
-                    {this.state.travelList.map(t =>
-                        <tr key = {t.id}>
-                            <td>{t.id}</td>
-                            <td>{t.date}</td>
-                        </tr>
-                    )}
-                    </tbody>
-                </table>
-            </div>
-        );
-    }
+        }, []
+    )
+
+    return (
+        <div className="UpcomingTravelsList">
+            <h5>UpcomingTravelsList</h5>
+
+            <List>
+                {upcomingTravels.map((item, index) =>
+                    <ListItem key={index} button>
+                        <ListItemText primary={item.date}/>
+                    </ListItem>)
+                }
+
+
+            </List>
+        </div>
+    )
 }
 
 export default UpcomingTravelsList;
