@@ -4,10 +4,10 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
     "axios": "^0.18.0",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-dom": "^16.8.4"
   },
   "proxy": "http://localhost:8080",
   "scripts": {

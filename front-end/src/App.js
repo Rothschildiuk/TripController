@@ -4,6 +4,7 @@ import AddNewDate from "./AddNewDate";
 import AddPassenger from "./AddPassenger";
 import PastTravelsList from "./PastTravelsList";
 import UpcomingTravelsList from "./UpcomingTravelsList";
+import AppBar from './AppBar'
 
 const App = () => {
 
@@ -11,7 +12,7 @@ const App = () => {
 
     return (
         <div className="App">
-            <h1>App</h1>
+            <AppBar/>
             <AddPassenger/>
             <AddNewDate/>
 
