@@ -17,8 +17,6 @@ const WorkingArea = () => {
     )
     return <div className='WorkingArea'>
         {upcomingTravels.length !== 0 && <UpcomingTravelsList travels={upcomingTravels}/>}
-
-
         <AddPassenger/>
     </div>
 

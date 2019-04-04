@@ -14,12 +14,11 @@ const AddPassenger = () => {
     const [travelId, setTravelId] = useState(0);
 
 
-    return (
-        <div className='AddPassenger'>
-            <Typography variant='h4' align='center' >
-                add new passenger to DB
-            </Typography>
-
+    return <div className='AddPassenger'>
+        <Typography variant='h4' align='center'>
+            add new passenger to DB
+        </Typography>
+        <div>
             <TextField
                 id="standard-name"
                 label="Name"
@@ -44,7 +43,8 @@ const AddPassenger = () => {
                 onChange={e => setPhoneNumber(e.target.value)}
                 margin="normal"
             />
-
+        </div>
+        <div>
             <TextField
                 id="standard-name"
                 label="Address"
@@ -69,14 +69,14 @@ const AddPassenger = () => {
                 margin="normal"
             />
 
-
-            <Button variant="contained" color="primary"  onClick={() => RequestUtil.addPassenger(name, surname, phoneNumber, address, comment, travelId)}>
-                Submit
-            </Button>
-
-
         </div>
-    );
+        <Button variant="contained" color="primary"
+                onClick={() => RequestUtil.addPassenger(name, surname, phoneNumber, address, comment, travelId)}>
+            Submit
+        </Button>
+
+
+    </div>
 
 };
 

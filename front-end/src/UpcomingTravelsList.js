@@ -12,12 +12,7 @@ const UpcomingTravelsList = (props) => {
 
     return <div className='UpcomingTravelsList'>
 
-        <Typography variant='h4' align='center'>
-            Actual travels
-
-
-        </Typography>
-
+        <Typography variant='h4' align='center'>Actual travels</Typography>
         <List>
             {props.travels.map((item, index) =>
                 <ListItem key={index} button>
