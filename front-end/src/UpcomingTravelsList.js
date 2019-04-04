@@ -24,8 +24,8 @@ const UpcomingTravelsList = () => {
 
     return (
         <div className='UpcomingTravelsList'>
-            <Typography variant='h4'>
-                Actuel travels
+            <Typography variant='h4' align='center' >
+                Actual travels
             </Typography>
             <List>
                 {upcomingTravels.map((item, index) =>
@@ -33,9 +33,10 @@ const UpcomingTravelsList = () => {
                         <ListItemText primary={item.date}/>
                     </ListItem>)
                 }
-
-
             </List>
+
+
+
             <AddNewDate/>
         </div>
     )

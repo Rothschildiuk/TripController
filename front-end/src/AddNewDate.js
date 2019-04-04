@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import RequestUtil from "./api/RequestUtil";
-import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
 
 const AddNewDate = () => {
     const [date, setDate] = useState("");
@@ -9,17 +10,18 @@ const AddNewDate = () => {
 
     return (
         <div className="AddNewDate">
-            <Typography variant='h5'>
-                add new date to DB
-            </Typography>
-            <label>
-                Date:
-                <input value={date} onChange={e => setDate(e.target.value)} type="text" name="date"/>
-            </label>
-            <br/>
-            <button type="submit" value="Submit"
-                    onClick={() => RequestUtil.addDate(date)}> add new travel date
-            </button>
+
+            <TextField
+                id="outlined-dense"
+                label="Add new date to DB"
+                margin="dense"
+                variant="outlined"
+                onChange={e => setDate(e.target.value)}
+            />
+
+            <Button variant="contained" color="primary" onClick={() => RequestUtil.addDate(date)}>
+                Submit
+            </Button>
 
         </div>
     );
