@@ -1,18 +1,14 @@
 import React from 'react'
 import './App.css'
-import UpcomingTravelsList from './UpcomingTravelsList'
 import AppBar from './AppBar'
-import AddPassenger from './AddPassenger'
+import WorkingArea from './WorkingArea'
 
 const App = () => {
 
     return (
         <div className='App'>
             <AppBar/>
-            <div className='WorkingArea'>
-                <UpcomingTravelsList/>
-                <AddPassenger/>
-            </div>
+            <WorkingArea/>
         </div>
     );
 
