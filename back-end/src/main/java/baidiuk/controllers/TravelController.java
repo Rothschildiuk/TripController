@@ -28,7 +28,8 @@ public class TravelController {
         Travel n = new Travel();
         String stringDate = jsonBody.get("date").asText();
 
-        SimpleDateFormat sdf1 = new SimpleDateFormat("dd.MM.yyyy");
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+
         java.util.Date date = null;
         try {
             date = sdf1.parse(stringDate);

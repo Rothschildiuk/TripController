@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './App.css'
 import UpcomingTravelsList from './UpcomingTravelsList'
 import AppBar from './AppBar'
@@ -9,7 +9,7 @@ const App = () => {
     return (
         <div className='App'>
             <AppBar/>
-            <div className='WokingArea'>
+            <div className='WorkingArea'>
                 <UpcomingTravelsList/>
                 <AddPassenger/>
             </div>
