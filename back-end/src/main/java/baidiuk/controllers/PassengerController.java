@@ -20,8 +20,8 @@ public class PassengerController {
     private TravelRepository travelRepository;
 
     @PostMapping(path = "/addPassenger") // Map ONLY GET Requests
-    public @ResponseBody
-    ResponseEntity addPassenger(@RequestBody JsonNode jsonBody) {
+    @ResponseBody
+    public ResponseEntity addPassenger(@RequestBody JsonNode jsonBody) {
 
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
@@ -55,8 +55,8 @@ public class PassengerController {
     }
 
     @GetMapping(path = "/getAllPassenger")
-    public @ResponseBody
-    Iterable<Passenger> getAllPassenger() {
+    @ResponseBody
+    public Iterable<Passenger> getAllPassenger() {
         // This returns a JSON or XML with the users
         return passengerRepository.findAll();
     }
@@ -64,9 +64,10 @@ public class PassengerController {
 
 
     @GetMapping(path = "/getPassengerWithTravelId")
-    public @ResponseBody
-    Iterable<Passenger> getPassengerWithTravelId() {
-        return passengerRepository.getPassengerWithTravelId();
+    @ResponseBody
+    public Iterable<Passenger> getPassengerWithTravelId(@RequestParam String id) {
+        //http request example http://localhost:8080/api/getPassengerWithTravelId?id=1
+        return passengerRepository.getPassengerWithTravelId(id);
     }
 
 

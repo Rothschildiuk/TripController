@@ -10,9 +10,8 @@ import org.springframework.data.repository.CrudRepository;
 public interface PassengerRepository extends CrudRepository<Passenger, Integer> {
 
 
-    @Query(
-            value = "SELECT id, travel_id_id, name, surname, address, phone_number, comment FROM passenger WHERE travel_id_id = 1",
+    @Query(value = "SELECT * FROM passenger WHERE travel_id_id = ?1",
             nativeQuery = true)
-    Iterable<Passenger> getPassengerWithTravelId();
+    Iterable<Passenger> getPassengerWithTravelId(String id);
 
 }
