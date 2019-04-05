@@ -11,6 +11,12 @@
     background-color: #c5acff;
 
 }
+.LeftArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
 
 .UpcomingTravelsList {
     width: 20%;

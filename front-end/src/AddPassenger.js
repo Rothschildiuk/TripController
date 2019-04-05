@@ -15,7 +15,7 @@ const AddPassenger = () => {
 
 
     return <div className='AddPassenger'>
-        <Typography variant='h4' align='center'>
+        <Typography variant='h6' align='center'>
             add new passenger to DB
         </Typography>
         <div>

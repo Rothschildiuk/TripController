@@ -1,8 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import './App.css'
-import UpcomingTravelsList from './UpcomingTravelsList'
 import AddPassenger from './AddPassenger'
 import axios from 'axios'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import AddNewDate from './AddNewDate'
+import Typography from '@material-ui/core/Typography'
 
 const WorkingArea = () => {
 
@@ -16,7 +20,21 @@ const WorkingArea = () => {
         }, [] //todo add upcomingTravels (updateble)
     )
     return <div className='WorkingArea'>
-        {upcomingTravels.length !== 0 && <UpcomingTravelsList travels={upcomingTravels}/>}
+        <div className='LeftArea'>
+            <Typography variant='h6' align='center'>
+                TravelsList
+            </Typography>
+            <List>
+                {upcomingTravels.map((item, index) =>
+                    <ListItem key={index} button>
+                        <ListItemText primary={item.date} />
+                    </ListItem>)
+                }
+            </List>
+            <AddNewDate/>
+        </div>
+
+
         <AddPassenger/>
     </div>
 
