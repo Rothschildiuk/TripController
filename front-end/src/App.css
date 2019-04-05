@@ -1,6 +1,5 @@
 
 .App {
-    background-color: bisque;
     height: 100vh;
 }
 
@@ -8,19 +7,18 @@
 .WorkingArea {
     display: flex;
     height: 100vh;
-    background-color: #c5acff;
 
 }
 .LeftArea{
     display: flex;
+    background-color: #66ff7c;
+    width: 20%;
     flex-direction: column;
     justify-content: space-between;
     overflow-y: scroll;
 }
 
 .UpcomingTravelsList {
-    width: 20%;
-    background-color: #97ff95;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -30,7 +28,7 @@
 
 .AddPassenger {
     width: 80%;
-    background-color: #ff9dac;
+    background-color: rgba(55, 60, 255, 0.74);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
