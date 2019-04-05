@@ -4,11 +4,10 @@ import WorkingArea from './WorkingArea'
 
 const App = () => {
 
-    return (
-        <div className='App'>
-            <WorkingArea/>
-        </div>
-    );
+    return <div className='App'>
+        <WorkingArea/>
+    </div>
+
 
 };
 

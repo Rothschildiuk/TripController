@@ -1,12 +1,13 @@
 
 .App {
     background-color: bisque;
+    height: 100vh;
 }
 
 
 .WorkingArea {
     display: flex;
-    max-height: 100vh;
+    height: 100vh;
     background-color: #c5acff;
 
 }
