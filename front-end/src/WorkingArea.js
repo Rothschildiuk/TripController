@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import './App.css'
-import AddPassenger from './AddPassenger'
+import RightArea from './RightArea'
 import axios from 'axios'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -36,7 +36,7 @@ const WorkingArea = () => {
         </div>
 
 
-        <AddPassenger selectedTravelId={selectedTravelId}/>
+        <RightArea selectedTravelId={selectedTravelId}/>
     </div>
 
 

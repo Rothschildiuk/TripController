@@ -26,9 +26,9 @@
 
 }
 
-.AddPassenger {
+.RightArea {
     width: 80%;
-    background-color: rgba(55, 60, 255, 0.74);
+    background-color: #9f309cde;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

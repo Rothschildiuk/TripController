@@ -10,12 +10,12 @@ import org.springframework.data.repository.CrudRepository;
 public interface TravelRepository extends CrudRepository<Travel, Integer> {
 
     @Query(
-            value = "SELECT travel.id, travel.date FROM travel WHERE date < CURRENT_DATE",
+            value = "SELECT travel.id, travel.date FROM travel WHERE date < CURRENT_DATE ORDER BY date",
             nativeQuery = true)
     Iterable<Travel> getPastTravels();
 
     @Query(
-            value = "SELECT travel.id, travel.date FROM travel WHERE date > CURRENT_DATE",
+            value = "SELECT travel.id, travel.date FROM travel WHERE date > CURRENT_DATE ORDER BY date",
             nativeQuery = true)
     Iterable<Travel> getUpcomingTravels();
 

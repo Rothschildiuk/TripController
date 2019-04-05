@@ -34,7 +34,7 @@ public class PassengerController {
         String address = jsonBody.get("address").asText();
         String comment = jsonBody.get("comment").asText();
         int travelId = jsonBody.get("travelId").asInt();
-        Travel travel =  travelRepository.findById(travelId).orElse(null);
+        Travel travel = travelRepository.findById(travelId).orElse(null);
 
         if (StringUtils.isEmpty(name) ||
                 StringUtils.isEmpty(surName) ||
@@ -60,4 +60,15 @@ public class PassengerController {
         // This returns a JSON or XML with the users
         return passengerRepository.findAll();
     }
+
+
+
+    @GetMapping(path = "/getPassengerWithTravelId")
+    public @ResponseBody
+    Iterable<Passenger> getPassengerWithTravelId() {
+        return passengerRepository.getPassengerWithTravelId();
+    }
+
+
+
 }

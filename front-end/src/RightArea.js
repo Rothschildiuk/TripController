@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
-const AddPassenger = (props) => {
+const RightArea = (props) => {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -19,7 +19,8 @@ const AddPassenger = (props) => {
         }, [props]
     )
 
-    return <div className='AddPassenger'>
+    return <div className='RightArea'>
+
         <Typography variant='h6' align='center'>
             add new passenger to DB
         </Typography>
@@ -85,4 +86,4 @@ const AddPassenger = (props) => {
 
 }
 
-export default AddPassenger;
+export default RightArea;
