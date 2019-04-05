@@ -4,22 +4,39 @@ import RequestUtil from './api/RequestUtil';
 import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import axios from 'axios'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
 
 const RightArea = (props) => {
-    const [name, setName] = useState('');
-    const [surname, setSurname] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [address, setAddress] = useState('');
-    const [comment, setComment] = useState('');
-    const [travelId, setTravelId] = useState(0);
+    const [passengerList, setPassengerList] = useState([])
+
+    const [name, setName] = useState('')
+    const [surname, setSurname] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [address, setAddress] = useState('')
+    const [comment, setComment] = useState('')
+    const [travelId, setTravelId] = useState(0)
+
+    const url = '/api/getPassengerWithTravelId'
 
 
     useEffect(() => {
             setTravelId(props.selectedTravelId)
+            axios.get(url + '?id=' + props.selectedTravelId)
+                .then(resp => setPassengerList(resp.data))
         }, [props]
     )
 
     return <div className='RightArea'>
+        <List>
+            {passengerList.map((item, index) =>
+                <ListItem key={index} button>
+                    <ListItemText primary={item.name + ' ' + item.surname + ' ' + item.phoneNumber + ' ' + item.address + ' ' + item.address + ' ' + item.comment } />
+                </ListItem>)
+            }
+        </List>
 
         <Typography variant='h6' align='center'>
             add new passenger to DB
