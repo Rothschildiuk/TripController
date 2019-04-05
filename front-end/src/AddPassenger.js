@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import RequestUtil from './api/RequestUtil';
 import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
-const AddPassenger = () => {
+const AddPassenger = (props) => {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -13,6 +13,11 @@ const AddPassenger = () => {
     const [comment, setComment] = useState('');
     const [travelId, setTravelId] = useState(0);
 
+
+    useEffect(() => {
+            setTravelId(props.selectedTravelId)
+        }, [props]
+    )
 
     return <div className='AddPassenger'>
         <Typography variant='h6' align='center'>
@@ -78,6 +83,6 @@ const AddPassenger = () => {
 
     </div>
 
-};
+}
 
 export default AddPassenger;

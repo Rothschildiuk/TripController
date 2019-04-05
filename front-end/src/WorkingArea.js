@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography'
 const WorkingArea = () => {
 
     const [upcomingTravels, setUpcomingTravels] = useState([])
+    const [selectedTravelId, setSelectedTravelId] = useState(0)
     const url = '/api/getUpcomingTravels'
 
 
@@ -27,7 +28,7 @@ const WorkingArea = () => {
             <List>
                 {upcomingTravels.map((item, index) =>
                     <ListItem key={index} button>
-                        <ListItemText primary={item.date} />
+                        <ListItemText primary={item.date} onClick={() => setSelectedTravelId(item.id)}/>
                     </ListItem>)
                 }
             </List>
@@ -35,7 +36,7 @@ const WorkingArea = () => {
         </div>
 
 
-        <AddPassenger/>
+        <AddPassenger selectedTravelId={selectedTravelId}/>
     </div>
 
 
