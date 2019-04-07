@@ -35,10 +35,10 @@ const WorkingArea = () => {
             <List>
                 {upcomingTravels.map((item, index) =>
                     <ListItem key={index} button>
-                        {/*<ListItemText inset primary="Chelsea Otakan"/>*/}
                         <ListItemText inset primary={item.date} onClick={() => setSelectedTravelId(item.id)}/>
-                        <IconButton aria-label="Delete">
-                            <DeleteOutlinedIcon onClick={() => delTravelWithId(item.id)}/>
+
+                        <IconButton aria-label="Delete" onClick={() => delTravelWithId(item.id)}>
+                            <DeleteOutlinedIcon/>
                         </IconButton>
                     </ListItem>)
                 }
