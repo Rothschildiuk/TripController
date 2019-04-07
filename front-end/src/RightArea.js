@@ -7,6 +7,9 @@ import axios from 'axios'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
+import Grid from '@material-ui/core/Grid'
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+import IconButton from '@material-ui/core/IconButton'
 
 const RightArea = (props) => {
     const [passengerList, setPassengerList] = useState([])
@@ -43,9 +46,17 @@ const RightArea = (props) => {
     return <div className='RightArea'>
         <List>
             {passengerList.map((item, index) =>
-                <ListItem key={index} >
+                <ListItem key={index}>
                     <ListItemText
-                        primary={item.name + ' ' + item.surname + ' ' + item.phoneNumber + ' ' + item.address + ' ' + item.address + ' ' + item.comment}/>
+                        primary={item.name + ' ' +
+                        item.surname + ' ' +
+                        item.phoneNumber + ' ' +
+                        item.address + ' ' +
+                        item.address + ' ' +
+                        item.comment}/>
+                        <IconButton aria-label="Delete">
+                            <DeleteOutlinedIcon />
+                        </IconButton>
                 </ListItem>)
             }
         </List>
@@ -53,61 +64,73 @@ const RightArea = (props) => {
         <Typography variant='h6'>
             add new passenger to DB
         </Typography>
-        <div>
-            <TextField
-                id="standard-name"
-                label="Name"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                margin="normal"
-            />
+        <Grid container className='addPassenger'>
+            <Grid container direction="row"
+                  justify="center"
+                  alignItems="flex-end">
+                <TextField
+                    id="standard-name"
+                    label="Name"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    margin="normal"
+                />
+
+                <TextField
+                    id="standard-name"
+                    label="Surname"
+                    value={surname}
+                    onChange={e => setSurname(e.target.value)}
+                    margin="normal"
+                />
+
+                <TextField
+                    id="standard-name"
+                    label="PhoneNumber"
+                    value={phoneNumber}
+                    onChange={e => setPhoneNumber(e.target.value)}
+                    margin="normal"
+                />
+            </Grid>
+
+            <Grid container direction="row"
+                  justify="center"
+                  alignItems="flex-end">
+
+                <TextField
+                    id="standard-name"
+                    label="Address"
+                    value={address}
+                    onChange={e => setAddress(e.target.value)}
+                    margin="normal"
+                />
 
 
-            <TextField
-                id="standard-name"
-                label="Surname"
-                value={surname}
-                onChange={e => setSurname(e.target.value)}
-                margin="normal"
-            />
+                <TextField
+                    id="standard-name"
+                    label="Comment"
+                    value={comment}
+                    onChange={e => setComment(e.target.value)}
+                    margin="normal"
+                />
 
-            <TextField
-                id="standard-name"
-                label="PhoneNumber"
-                value={phoneNumber}
-                onChange={e => setPhoneNumber(e.target.value)}
-                margin="normal"
-            />
-        </div>
-        <div>
-            <TextField
-                id="standard-name"
-                label="Address"
-                value={address}
-                onChange={e => setAddress(e.target.value)}
-                margin="normal"
-            />
 
-            <TextField
-                id="standard-name"
-                label="Comment"
-                value={comment}
-                onChange={e => setComment(e.target.value)}
-                margin="normal"
-            />
+                <TextField
+                    id="standard-name"
+                    label="TravelId"
+                    value={travelId}
+                    onChange={e => setTravelId(e.target.value)}
+                    margin="normal"
+                />
 
-            <TextField
-                id="standard-name"
-                label="TravelId"
-                value={travelId}
-                onChange={e => setTravelId(e.target.value)}
-                margin="normal"
-            />
-
-        </div>
+            </Grid>
+        </Grid>
         <Button variant="contained" color="primary"
                 onClick={() => addPassenger(name, surname, phoneNumber, address, comment, travelId)}>
             Submit
+        </Button>
+        <Button variant="outlined" color="inherit">
+            Inherit
         </Button>
 
 

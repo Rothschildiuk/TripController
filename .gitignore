@@ -4,12 +4,10 @@ lib/
 # front-end
 front-end/front-end.iml
 front-end/node_modules
-front-end/README.md
 
 # back-end
 back-end/back-end.iml
 
-package-lock.json
 yarn.lock
 
 
