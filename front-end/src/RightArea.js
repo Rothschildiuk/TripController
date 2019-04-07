@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import './App.css';
-import RequestUtil from './api/RequestUtil';
+import React, {useEffect, useState} from 'react'
+import './App.css'
 import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
@@ -19,13 +18,25 @@ const RightArea = (props) => {
     const [comment, setComment] = useState('')
     const [travelId, setTravelId] = useState(0)
 
-    const url = '/api/getPassengerWithTravelId'
+
+    function addPassenger(name, surName, phoneNumber, address, comment, travelId) {
+        axios.post('/api/addPassenger', {
+            name: name,
+            surName: surName,
+            phoneNumber: phoneNumber,
+            address: address,
+            comment: comment,
+            travelId: travelId
+        })
+    }
 
 
     useEffect(() => {
             setTravelId(props.selectedTravelId)
-            axios.get(url + '?id=' + props.selectedTravelId)
+            axios.get('/api/getPassengerWithTravelId?id=' + props.selectedTravelId)
                 .then(resp => setPassengerList(resp.data))
+
+
         }, [props]
     )
 
@@ -33,7 +44,8 @@ const RightArea = (props) => {
         <List>
             {passengerList.map((item, index) =>
                 <ListItem key={index} button>
-                    <ListItemText primary={item.name + ' ' + item.surname + ' ' + item.phoneNumber + ' ' + item.address + ' ' + item.address + ' ' + item.comment } />
+                    <ListItemText
+                        primary={item.name + ' ' + item.surname + ' ' + item.phoneNumber + ' ' + item.address + ' ' + item.address + ' ' + item.comment}/>
                 </ListItem>)
             }
         </List>
@@ -94,7 +106,7 @@ const RightArea = (props) => {
 
         </div>
         <Button variant="contained" color="primary"
-                onClick={() => RequestUtil.addPassenger(name, surname, phoneNumber, address, comment, travelId)}>
+                onClick={() => addPassenger(name, surname, phoneNumber, address, comment, travelId)}>
             Submit
         </Button>
 
@@ -103,4 +115,4 @@ const RightArea = (props) => {
 
 }
 
-export default RightArea;
+export default RightArea

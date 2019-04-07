@@ -12,11 +12,10 @@ const WorkingArea = () => {
 
     const [upcomingTravels, setUpcomingTravels] = useState([])
     const [selectedTravelId, setSelectedTravelId] = useState(0)
-    const url = '/api/getUpcomingTravels'
 
 
     useEffect(() => {
-            axios.get(url)
+            axios.get('/api/getUpcomingTravels')
                 .then(resp => setUpcomingTravels(resp.data))
         }, [] //todo add upcomingTravels (updateble)
     )
