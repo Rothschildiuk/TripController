@@ -33,6 +33,11 @@ const RightArea = (props) => {
         })
     }
 
+    function delPassengerWithId(id) {
+        axios.get('/api/delPassengerWithId?id=' + id)
+            .then(resp => console.log(resp))
+    }
+
 
     useEffect(() => {
             setTravelId(props.selectedTravelId)
@@ -54,9 +59,9 @@ const RightArea = (props) => {
                         item.address + ' ' +
                         item.address + ' ' +
                         item.comment}/>
-                        <IconButton aria-label="Delete">
-                            <DeleteOutlinedIcon />
-                        </IconButton>
+                    <IconButton aria-label="Delete">
+                        <DeleteOutlinedIcon onClick={() => delPassengerWithId(item.id)}/>
+                    </IconButton>
                 </ListItem>)
             }
         </List>

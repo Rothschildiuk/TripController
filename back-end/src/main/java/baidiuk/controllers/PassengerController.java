@@ -62,7 +62,6 @@ public class PassengerController {
     }
 
 
-
     @GetMapping(path = "/getPassengerWithTravelId")
     @ResponseBody
     public Iterable<Passenger> getPassengerWithTravelId(@RequestParam String id) {
@@ -71,10 +70,10 @@ public class PassengerController {
 
     @GetMapping(path = "/delPassengerWithId")
     @ResponseBody
-    public ResponseEntity delPassengerWithId(@RequestParam String id) {
-        return passengerRepository.delPassengerWithId(id);
+    public ResponseEntity delPassengerWithId(@RequestParam int id) {
+        passengerRepository.deleteById(id);
+        return ResponseEntity.ok().build();
     }
-
 
 
 }

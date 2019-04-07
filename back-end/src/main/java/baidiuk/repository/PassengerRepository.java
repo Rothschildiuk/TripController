@@ -16,8 +16,5 @@ public interface PassengerRepository extends CrudRepository<Passenger, Integer> 
     Iterable<Passenger> getPassengerWithTravelId(String id);
 
 
-    @Query(value = "DELETE FROM passenger WHERE id = ?1",
-            nativeQuery = true)
-    ResponseEntity delPassengerWithId(String id);
 
 }
