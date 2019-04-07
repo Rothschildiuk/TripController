@@ -129,9 +129,6 @@ const RightArea = (props) => {
                 onClick={() => addPassenger(name, surname, phoneNumber, address, comment, travelId)}>
             Submit
         </Button>
-        <Button variant="outlined" color="inherit">
-            Inherit
-        </Button>
 
 
     </div>

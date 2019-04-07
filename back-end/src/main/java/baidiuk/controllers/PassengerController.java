@@ -66,8 +66,13 @@ public class PassengerController {
     @GetMapping(path = "/getPassengerWithTravelId")
     @ResponseBody
     public Iterable<Passenger> getPassengerWithTravelId(@RequestParam String id) {
-        //http request example http://localhost:8080/api/getPassengerWithTravelId?id=1
         return passengerRepository.getPassengerWithTravelId(id);
+    }
+
+    @GetMapping(path = "/delPassengerWithId")
+    @ResponseBody
+    public ResponseEntity delPassengerWithId(@RequestParam String id) {
+        return passengerRepository.delPassengerWithId(id);
     }
 
 
