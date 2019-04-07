@@ -60,7 +60,7 @@ const RightArea = (props) => {
                         item.address + ' ' +
                         item.address + ' ' +
                         item.comment}/>
-                    <IconButton aria-label="Delete">
+                    <IconButton aria-label='Delete'>
                         <DeleteOutlinedIcon onClick={() => delPassengerWithId(item.id)}/>
                     </IconButton>
                 </ListItem>)
@@ -73,61 +73,61 @@ const RightArea = (props) => {
         <div className='addNewPassenger'>
             <div>
                 <TextField
-                    id="standard-name"
-                    label="Name"
+                    id='standard-name'
+                    label='Name'
                     value={name}
                     onChange={e => setName(e.target.value)}
-                    margin="normal"
+                    margin='normal'
                 />
 
                 <TextField
-                    id="standard-name"
-                    label="Surname"
+                    id='standard-name'
+                    label='Surname'
                     value={surname}
                     onChange={e => setSurname(e.target.value)}
-                    margin="normal"
+                    margin='normal'
                 />
 
                 <TextField
-                    id="standard-name"
-                    label="PhoneNumber"
+                    id='standard-name'
+                    label='PhoneNumber'
                     value={phoneNumber}
                     onChange={e => setPhoneNumber(e.target.value)}
-                    margin="normal"
+                    margin='normal'
                 />
 
             </div>
             <div>
                 <TextField
-                    id="standard-name"
-                    label="Address"
+                    id='standard-name'
+                    label='Address'
                     value={address}
                     onChange={e => setAddress(e.target.value)}
-                    margin="normal"
+                    margin='normal'
                 />
 
 
                 <TextField
-                    id="standard-name"
-                    label="Comment"
+                    id='standard-name'
+                    label='Comment'
                     value={comment}
                     onChange={e => setComment(e.target.value)}
-                    margin="normal"
+                    margin='normal'
                 />
 
 
                 <TextField
                     disabled
-                    id="standard-name"
-                    label="TravelId"
+                    id='standard-name'
+                    label='TravelId'
                     value={travelId}
                     onChange={e => setTravelId(e.target.value)}
-                    margin="normal"
+                    margin='normal'
                 />
             </div>
         </div>
 
-        <Button variant="contained" color="primary"
+        <Button variant='contained' color='primary'
                 onClick={() => addPassenger(name, surname, phoneNumber, address, comment, travelId)}>
             Submit
         </Button>

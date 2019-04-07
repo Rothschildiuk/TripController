@@ -7,7 +7,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import AddNewDate from './AddNewDate'
 import Typography from '@material-ui/core/Typography'
-import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined'
 import IconButton from '@material-ui/core/IconButton'
 
 const WorkingArea = () => {
@@ -37,7 +37,7 @@ const WorkingArea = () => {
                     <ListItem key={index} button>
                         <ListItemText inset primary={item.date} onClick={() => setSelectedTravelId(item.id)}/>
 
-                        <IconButton aria-label="Delete" onClick={() => delTravelWithId(item.id)}>
+                        <IconButton aria-label='Delete' onClick={() => delTravelWithId(item.id)}>
                             <DeleteOutlinedIcon/>
                         </IconButton>
                     </ListItem>)
