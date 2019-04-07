@@ -43,14 +43,14 @@ const RightArea = (props) => {
     return <div className='RightArea'>
         <List>
             {passengerList.map((item, index) =>
-                <ListItem key={index} button>
+                <ListItem key={index} >
                     <ListItemText
                         primary={item.name + ' ' + item.surname + ' ' + item.phoneNumber + ' ' + item.address + ' ' + item.address + ' ' + item.comment}/>
                 </ListItem>)
             }
         </List>
 
-        <Typography variant='h6' align='center'>
+        <Typography variant='h6'>
             add new passenger to DB
         </Typography>
         <div>
