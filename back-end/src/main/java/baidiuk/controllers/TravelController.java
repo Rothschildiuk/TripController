@@ -64,4 +64,11 @@ public class TravelController {
     public Iterable<Travel> getUpcomingTravels() {
         return travelRepository.getUpcomingTravels();
     }
+
+    @GetMapping(path = "/delTravelWithId")
+    @ResponseBody
+    public ResponseEntity delTravelWithId(@RequestParam int id) {
+        travelRepository.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
 }

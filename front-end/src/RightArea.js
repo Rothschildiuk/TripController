@@ -7,8 +7,7 @@ import axios from 'axios'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
-import Grid from '@material-ui/core/Grid'
-import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined'
 import IconButton from '@material-ui/core/IconButton'
 
 const RightArea = (props) => {
@@ -36,6 +35,8 @@ const RightArea = (props) => {
     function delPassengerWithId(id) {
         axios.get('/api/delPassengerWithId?id=' + id)
             .then(resp => console.log(resp))
+            .catch(err => console.log(err))
+
     }
 
 
@@ -69,10 +70,8 @@ const RightArea = (props) => {
         <Typography variant='h6'>
             add new passenger to DB
         </Typography>
-        <Grid container className='addPassenger'>
-            <Grid container direction="row"
-                  justify="center"
-                  alignItems="flex-end">
+        <div className='addNewPassenger'>
+            <div>
                 <TextField
                     id="standard-name"
                     label="Name"
@@ -96,12 +95,9 @@ const RightArea = (props) => {
                     onChange={e => setPhoneNumber(e.target.value)}
                     margin="normal"
                 />
-            </Grid>
 
-            <Grid container direction="row"
-                  justify="center"
-                  alignItems="flex-end">
-
+            </div>
+            <div>
                 <TextField
                     id="standard-name"
                     label="Address"
@@ -121,15 +117,16 @@ const RightArea = (props) => {
 
 
                 <TextField
+                    disabled
                     id="standard-name"
                     label="TravelId"
                     value={travelId}
                     onChange={e => setTravelId(e.target.value)}
                     margin="normal"
                 />
+            </div>
+        </div>
 
-            </Grid>
-        </Grid>
         <Button variant="contained" color="primary"
                 onClick={() => addPassenger(name, surname, phoneNumber, address, comment, travelId)}>
             Submit

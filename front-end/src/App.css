@@ -41,3 +41,7 @@
     align-items: center;
     justify-content: center;
 }
+.addNewPassenger{
+    display: flex;
+    flex-direction: column;
+}

@@ -7,18 +7,26 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import AddNewDate from './AddNewDate'
 import Typography from '@material-ui/core/Typography'
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+import IconButton from '@material-ui/core/IconButton'
 
 const WorkingArea = () => {
 
     const [upcomingTravels, setUpcomingTravels] = useState([])
     const [selectedTravelId, setSelectedTravelId] = useState(0)
 
+    function delTravelWithId(id) {
+        axios.get('/api/delTravelWithId?id=' + id)
+            .then(resp => console.log(resp))
+            .catch(err => console.log(err))
+    }
 
     useEffect(() => {
             axios.get('/api/getUpcomingTravels')
                 .then(resp => setUpcomingTravels(resp.data))
         }, [] //todo add upcomingTravels (updateble)
     )
+
     return <div className='WorkingArea'>
         <div className='LeftArea'>
             <Typography variant='h6' align='center'>
@@ -27,7 +35,11 @@ const WorkingArea = () => {
             <List>
                 {upcomingTravels.map((item, index) =>
                     <ListItem key={index} button>
-                        <ListItemText primary={item.date} onClick={() => setSelectedTravelId(item.id)}/>
+                        {/*<ListItemText inset primary="Chelsea Otakan"/>*/}
+                        <ListItemText inset primary={item.date} onClick={() => setSelectedTravelId(item.id)}/>
+                        <IconButton aria-label="Delete">
+                            <DeleteOutlinedIcon onClick={() => delTravelWithId(item.id)}/>
+                        </IconButton>
                     </ListItem>)
                 }
             </List>
