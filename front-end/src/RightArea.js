@@ -118,6 +118,7 @@ const RightArea = (props) => {
 
                 <TextField
                     disabled
+                    required
                     id='standard-name'
                     label='TravelId'
                     value={travelId}
@@ -129,7 +130,8 @@ const RightArea = (props) => {
 
         <Button variant='contained' color='primary'
                 onClick={() => {
-                    addPassenger(name, surname, phoneNumber, address, comment, travelId)
+                    if (travelId === 0) console.log('choose travel!')
+                    else addPassenger(name, surname, phoneNumber, address, comment, travelId)
                 }}>
             Submit
         </Button>
