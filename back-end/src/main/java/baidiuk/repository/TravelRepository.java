@@ -15,7 +15,7 @@ public interface TravelRepository extends CrudRepository<Travel, Integer> {
     Iterable<Travel> getPastTravels();
 
     @Query(
-            value = "SELECT travel.id, travel.date FROM travel WHERE date > CURRENT_DATE ORDER BY date",
+            value = "SELECT travel.id, travel.date FROM travel WHERE date >= CURRENT_DATE ORDER BY date",
             nativeQuery = true)
     Iterable<Travel> getUpcomingTravels();
 
