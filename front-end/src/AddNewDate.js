@@ -3,14 +3,14 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import axios from 'axios'
 
-const AddNewDate = () => {
+const AddNewDate = (props) => {
     const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
 
 
     function addTravel(date) {
         axios.post('/api/addTravel', {
             date: date
-        })
+        }).then(props.getUpcomingTravels)
     }
 
     return (

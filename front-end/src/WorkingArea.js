@@ -17,13 +17,17 @@ const WorkingArea = () => {
 
     function delTravelWithId(id) {
         axios.get('/api/delTravelWithId?id=' + id)
-            .then(resp => console.log(resp))
-            .catch(err => console.log(err))
+            .then(getUpcomingTravels)
     }
 
+    function getUpcomingTravels() {
+        axios.get('/api/getUpcomingTravels')
+            .then(resp => setUpcomingTravels(resp.data))
+    }
+
+
     useEffect(() => {
-            axios.get('/api/getUpcomingTravels')
-                .then(resp => setUpcomingTravels(resp.data))
+            getUpcomingTravels()
         }, [] //todo add upcomingTravels (updateble)
     )
 
@@ -43,7 +47,7 @@ const WorkingArea = () => {
                     </ListItem>)
                 }
             </List>
-            <AddNewDate/>
+            <AddNewDate getUpcomingTravels={getUpcomingTravels}/>
         </div>
 
 
