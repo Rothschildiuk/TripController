@@ -29,7 +29,7 @@ public class PassengerController {
         Passenger n = new Passenger();
 
         String name = jsonBody.get("name").asText();
-        String surName = jsonBody.get("surName").asText();
+        String surname = jsonBody.get("surname").asText();
         String phoneNumber = jsonBody.get("phoneNumber").asText();
         String address = jsonBody.get("address").asText();
         String comment = jsonBody.get("comment").asText();
@@ -37,14 +37,14 @@ public class PassengerController {
         Travel travel = travelRepository.findById(travelId).orElse(null);
 
         if (StringUtils.isEmpty(name) ||
-                StringUtils.isEmpty(surName) ||
+                StringUtils.isEmpty(surname) ||
                 StringUtils.isEmpty(phoneNumber) ||
                 StringUtils.isEmpty(travelId) ||
                 StringUtils.isEmpty(address)) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
         n.setName(name);
-        n.setSurname(surName);
+        n.setSurname(surname);
         n.setPhoneNumber(phoneNumber);
         n.setAddress(address);
         n.setComment(comment);

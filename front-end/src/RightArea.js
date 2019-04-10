@@ -20,31 +20,31 @@ const RightArea = (props) => {
     const [comment, setComment] = useState('')
     const [travelId, setTravelId] = useState(0)
 
-
-    function addPassenger(name, surName, phoneNumber, address, comment, travelId) {
+    function addPassenger(name, surname, phoneNumber, address, comment, travelId) {
         axios.post('/api/addPassenger', {
             name: name,
-            surName: surName,
+            surname: surname,
             phoneNumber: phoneNumber,
             address: address,
             comment: comment,
             travelId: travelId
-        })
+        }).then(getPassengerWithTravelId)
     }
 
     function delPassengerWithId(id) {
         axios.get('/api/delPassengerWithId?id=' + id)
-            .then(resp => console.log(resp))
-            .catch(err => console.log(err))
+            .then(getPassengerWithTravelId)
+    }
 
+    function getPassengerWithTravelId() {
+        axios.get('/api/getPassengerWithTravelId?id=' + props.selectedTravelId)
+            .then(resp => setPassengerList(resp.data))
     }
 
 
     useEffect(() => {
             setTravelId(props.selectedTravelId)
-            axios.get('/api/getPassengerWithTravelId?id=' + props.selectedTravelId)
-                .then(resp => setPassengerList(resp.data))
-
+            getPassengerWithTravelId()
 
         }, [props]
     )
@@ -60,8 +60,8 @@ const RightArea = (props) => {
                         item.address + ' ' +
                         item.address + ' ' +
                         item.comment}/>
-                    <IconButton aria-label='Delete'>
-                        <DeleteOutlinedIcon onClick={() => delPassengerWithId(item.id)}/>
+                    <IconButton aria-label='Delete' onClick={() => delPassengerWithId(item.id)}>
+                        <DeleteOutlinedIcon/>
                     </IconButton>
                 </ListItem>)
             }
@@ -128,7 +128,9 @@ const RightArea = (props) => {
         </div>
 
         <Button variant='contained' color='primary'
-                onClick={() => addPassenger(name, surname, phoneNumber, address, comment, travelId)}>
+                onClick={() => {
+                    addPassenger(name, surname, phoneNumber, address, comment, travelId)
+                }}>
             Submit
         </Button>
 
