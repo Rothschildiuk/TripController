@@ -3,10 +3,9 @@ package baidiuk.repository;
 import baidiuk.entities.Passenger;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.http.ResponseEntity;
 
-// This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
-// CRUD refers Create, Read, Update, Delete
+import java.util.ArrayList;
+
 
 public interface PassengerRepository extends CrudRepository<Passenger, Integer> {
 
@@ -15,6 +14,7 @@ public interface PassengerRepository extends CrudRepository<Passenger, Integer> 
             nativeQuery = true)
     Iterable<Passenger> getPassengerWithTravelId(String id);
 
-
-
+    @Query(value = "select id FROM passenger WHERE travel_id_id = ?1",
+            nativeQuery = true)
+    ArrayList<Integer> getDeletePassengerIdList(int travelId);
 }
