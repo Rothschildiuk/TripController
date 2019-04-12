@@ -5,11 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
-@EqualsAndHashCode
+@Data
 @Entity // This tells Hibernate to make a table out of this class
 public class Travel {
     @Id
