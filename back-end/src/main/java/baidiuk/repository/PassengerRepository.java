@@ -10,11 +10,11 @@ import java.util.ArrayList;
 public interface PassengerRepository extends CrudRepository<Passenger, Integer> {
 
 
-    @Query(value = "SELECT * FROM passenger WHERE travel_id_id = ?1",
+    @Query(value = "SELECT * FROM passenger WHERE travel_id = ?1",
             nativeQuery = true)
     Iterable<Passenger> getPassengerWithTravelId(String id);
 
-    @Query(value = "select id FROM passenger WHERE travel_id_id = ?1",
+    @Query(value = "SELECT id FROM passenger WHERE travel_id = ?1",
             nativeQuery = true)
     ArrayList<Integer> getDeletePassengerIdList(int travelId);
 }

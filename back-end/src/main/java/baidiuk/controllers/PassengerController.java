@@ -26,7 +26,7 @@ public class PassengerController {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
-        Passenger n = new Passenger();
+        Passenger newPassenger = new Passenger();
 
         String name = jsonBody.get("name").asText();
         String surname = jsonBody.get("surname").asText();
@@ -43,14 +43,14 @@ public class PassengerController {
                 StringUtils.isEmpty(address)) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-        n.setName(name);
-        n.setSurname(surname);
-        n.setPhoneNumber(phoneNumber);
-        n.setAddress(address);
-        n.setComment(comment);
-        n.setTravelId(travel);
+        newPassenger.setName(name);
+        newPassenger.setSurname(surname);
+        newPassenger.setPhoneNumber(phoneNumber);
+        newPassenger.setAddress(address);
+        newPassenger.setComment(comment);
+        newPassenger.setTravel(travel);
 
-        passengerRepository.save(n);
+        passengerRepository.save(newPassenger);
         return ResponseEntity.ok().build();
     }
 

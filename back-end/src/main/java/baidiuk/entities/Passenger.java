@@ -24,6 +24,6 @@ public class Passenger {
     @ManyToOne
     @JoinColumn
     @NotNull
-    private Travel travelId;
+    private Travel travel;
 
 }
