@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 @RestController    // This means that this class is a Controller
 @RequestMapping(path = "/api") // This means URL's start with /demo (after Application path)
@@ -71,8 +70,6 @@ public class TravelController {
     @GetMapping(path = "/delTravelWithId")
     @ResponseBody
     public ResponseEntity delTravelWithId(@RequestParam int id) {
-        ArrayList<Integer> deletePassengerIdList = passengerRepository.getDeletePassengerIdList(id);
-        for (int i : deletePassengerIdList) passengerRepository.deleteById(i);
 
         travelRepository.deleteById(id);
         return ResponseEntity.ok().build();

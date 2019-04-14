@@ -1,5 +1,6 @@
 package baidiuk.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,9 +18,10 @@ public class Passenger {
     private String address;
     private String comment;
 
-    @ManyToOne
-    @JoinColumn
-    @NotNull
-    private Travel travel;
 
+    @JsonBackReference
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    private Travel travel;
 }

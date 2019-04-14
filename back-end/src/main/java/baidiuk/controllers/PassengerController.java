@@ -23,9 +23,6 @@ public class PassengerController {
     @ResponseBody
     public ResponseEntity addPassenger(@RequestBody JsonNode jsonBody) {
 
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
-
         Passenger newPassenger = new Passenger();
 
         String name = jsonBody.get("name").asText();
@@ -57,7 +54,6 @@ public class PassengerController {
     @GetMapping(path = "/getAllPassenger")
     @ResponseBody
     public Iterable<Passenger> getAllPassenger() {
-        // This returns a JSON or XML with the users
         return passengerRepository.findAll();
     }
 

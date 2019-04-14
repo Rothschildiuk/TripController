@@ -4,7 +4,6 @@ import baidiuk.entities.Passenger;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.ArrayList;
 
 
 public interface PassengerRepository extends CrudRepository<Passenger, Integer> {
@@ -14,7 +13,5 @@ public interface PassengerRepository extends CrudRepository<Passenger, Integer> 
             nativeQuery = true)
     Iterable<Passenger> getPassengerWithTravelId(String id);
 
-    @Query(value = "SELECT id FROM passenger WHERE travel_id = ?1",
-            nativeQuery = true)
-    ArrayList<Integer> getDeletePassengerIdList(int travelId);
+
 }
