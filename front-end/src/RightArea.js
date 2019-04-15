@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import './App.css'
-import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import axios from 'axios'
@@ -9,6 +8,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined'
 import IconButton from '@material-ui/core/IconButton'
+import {Snackbar} from '@material-ui/core'
 
 const RightArea = (props) => {
     const [passengerList, setPassengerList] = useState([])
@@ -19,6 +19,10 @@ const RightArea = (props) => {
     const [address, setAddress] = useState('')
     const [comment, setComment] = useState('')
     const [travelId, setTravelId] = useState(0)
+    const [open, setOpen] = useState(false)
+
+    function openSnackbar() {setOpen(!open)}
+
 
     function addPassenger(name, surname, phoneNumber, address, comment, travelId) {
         axios.post('/api/addPassenger', {
@@ -28,7 +32,12 @@ const RightArea = (props) => {
             address: address,
             comment: comment,
             travelId: travelId
-        }).then(getPassengerWithTravelId)
+        }).then(resp => {
+            if (resp.status === 200) {
+                getPassengerWithTravelId()
+                openSnackbar()
+            }
+        })
     }
 
     function delPassengerWithId(id) {
@@ -67,9 +76,6 @@ const RightArea = (props) => {
             }
         </List>
 
-        <Typography variant='h6'>
-            add new passenger to DB
-        </Typography>
         <div className='addNewPassenger'>
             <div>
                 <TextField
@@ -129,13 +135,22 @@ const RightArea = (props) => {
         </div>
 
         <Button variant='contained' color='primary'
-                onClick={() => {
-                    if (travelId === 0) console.log('choose travel!')
-                    else addPassenger(name, surname, phoneNumber, address, comment, travelId)
-                }}>
-            Submit
+                onClick={() => addPassenger(name, surname, phoneNumber, address, comment, travelId)}>
+            Save
         </Button>
 
+
+        <Snackbar
+            anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right'
+            }}
+            open={open}
+            autoHideDuration={2000}
+            onClose={openSnackbar}
+            message={<span id="message-id">Success</span>}
+
+        />
 
     </div>
 

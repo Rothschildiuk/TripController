@@ -22,7 +22,11 @@ const WorkingArea = () => {
 
     function getUpcomingTravels() {
         axios.get('/api/getUpcomingTravels')
-            .then(resp => setUpcomingTravels(resp.data))
+            .then(resp => {
+                setUpcomingTravels(resp.data)
+                if (resp.data.length !== 0)
+                setSelectedTravelId(resp.data[0].id)
+            })
     }
 
 
