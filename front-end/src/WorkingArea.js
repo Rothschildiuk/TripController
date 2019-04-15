@@ -1,14 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import './App.css'
 import RightArea from './RightArea'
-import axios from 'axios'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
 import AddNewDate from './AddNewDate'
-import Typography from '@material-ui/core/Typography'
+import axios from 'axios'
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined'
-import IconButton from '@material-ui/core/IconButton'
+import {List, ListItem, ListItemText, Typography, IconButton, Paper} from '@material-ui/core'
 
 const WorkingArea = () => {
 
@@ -25,7 +21,7 @@ const WorkingArea = () => {
             .then(resp => {
                 setUpcomingTravels(resp.data)
                 if (resp.data.length !== 0)
-                setSelectedTravelId(resp.data[0].id)
+                    setSelectedTravelId(resp.data[0].id)
             })
     }
 
@@ -37,9 +33,11 @@ const WorkingArea = () => {
 
     return <div className='WorkingArea'>
         <div className='LeftArea'>
-            <Typography variant='h6' align='center'>
-                TravelsList
-            </Typography>
+            <Paper>
+                <Typography variant='h6' align='center'>
+                    TravelsList
+                </Typography>
+            </Paper>
             <List>
                 {upcomingTravels.map((item, index) =>
                     <ListItem key={index} button selected={selectedTravelId === item.id}>

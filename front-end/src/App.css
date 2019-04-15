@@ -9,7 +9,8 @@
     height: 100vh;
 
 }
-.LeftArea{
+
+.LeftArea {
     display: flex;
     background-color: #66ff7c;
     width: 20%;
@@ -31,17 +32,24 @@
     background-color: #37a3ff;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     overflow-y: scroll;
 
 }
-.AddNewDate{
+
+.AddNewDate {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.addNewPassenger{
+
+.addNewPassenger {
     display: flex;
     flex-direction: column;
+}
+
+.PassengerList {
+    overflow-y: scroll;
+    width: 100%;
 }
