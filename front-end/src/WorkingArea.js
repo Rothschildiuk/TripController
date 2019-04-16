@@ -4,7 +4,7 @@ import RightArea from './RightArea'
 import AddNewDate from './AddNewDate'
 import axios from 'axios'
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined'
-import {List, ListItem, ListItemText, Typography, IconButton, Paper} from '@material-ui/core'
+import {List, ListItem, ListItemText, IconButton} from '@material-ui/core'
 
 const WorkingArea = () => {
 
@@ -33,11 +33,6 @@ const WorkingArea = () => {
 
     return <div className='WorkingArea'>
         <div className='LeftArea'>
-            <Paper>
-                <Typography variant='h6' align='center'>
-                    TravelsList
-                </Typography>
-            </Paper>
             <List>
                 {upcomingTravels.map((item, index) =>
                     <ListItem key={index} button selected={selectedTravelId === item.id}>

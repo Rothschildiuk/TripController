@@ -131,12 +131,13 @@ const RightArea = (props) => {
                         margin='normal'
                     />
                 </div>
+                <Button variant='contained' color='primary'
+                        onClick={() => addPassenger(name, surname, phoneNumber, address, comment, travelId)}>
+                    Save
+                </Button>
             </div>
 
-        <Button variant='contained' color='primary'
-                onClick={() => addPassenger(name, surname, phoneNumber, address, comment, travelId)}>
-            Save
-        </Button>
+
 
 
         <Snackbar
