@@ -4,16 +4,32 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogActions from '@material-ui/core/DialogActions'
 import GoogleLogin from 'react-google-login'
+import axios from 'axios'
 
 const Header = () => {
 
     const [open, setOpen] = useState(false)
 
+    function addUser(name, surname, email, imageUrl) {
+        axios.post('/api/addUser', {
+            name: name,
+            surname: surname,
+            email: email,
+            imageUrl: imageUrl
+        })
+    }
+
 
     const responseGoogle = (response) => {
+
+        addUser(response.profileObj.givenName,
+            response.profileObj.familyName,
+            response.profileObj.email,
+            response.profileObj.imageUrl)
+
         console.log(response);
-        console.log(response.profileObj.googleId)
-        console.log(response.profileObj.name)
+        console.log(response.profileObj.givenName)
+        console.log(response.profileObj.familyName)
         console.log(response.profileObj.email)
         console.log(response.profileObj.imageUrl)
     }
