@@ -9,6 +9,6 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     @Query(value = "SELECT * FROM TC.user WHERE email = ?1",
             nativeQuery = true)
-    User getUserByEmail(String id);
+    boolean checkUser(String email);
 
 }

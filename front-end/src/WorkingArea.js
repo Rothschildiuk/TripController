@@ -35,8 +35,8 @@ const WorkingArea = () => {
         <div className='LeftArea'>
             <List>
                 {upcomingTravels.map((item, index) =>
-                    <ListItem key={index} button selected={selectedTravelId === item.id}>
-                        <ListItemText inset primary={item.date} onClick={() => setSelectedTravelId(item.id)}/>
+                    <ListItem key={index} button selected={selectedTravelId === item.id} onClick={() => setSelectedTravelId(item.id)}>
+                        <ListItemText inset primary={item.date} />
 
                         <IconButton aria-label='Delete' onClick={() => delTravelWithId(item.id)}>
                             <DeleteOutlinedIcon/>

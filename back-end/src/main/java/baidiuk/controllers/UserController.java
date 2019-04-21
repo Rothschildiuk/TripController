@@ -26,16 +26,17 @@ public class UserController {
         String imageUrl = jsonBody.get("imageUrl").asText();
 
 //        todo check if User already inside is
-//        User user = userRepository.getUserByEmail(email).orElse(null);
-
 
         newUser.setName(name);
         newUser.setSurname(surname);
         newUser.setEmail(email);
         newUser.setImageUrl(imageUrl);
 
+
         userRepository.save(newUser);
         return ResponseEntity.ok().build();
+
+
     }
 }
 
